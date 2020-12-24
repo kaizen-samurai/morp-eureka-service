@@ -1,4 +1,4 @@
-package com.vv.personal.prom;
+package org.ks.trial.morp;
 
 /*
 @SpringBootTest

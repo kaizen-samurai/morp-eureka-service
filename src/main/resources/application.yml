@@ -1,6 +1,6 @@
 spring:
   application:
-    name: prom-eureka-service
+    name: morp-eureka-service
   cloud:
     loadbalancer:
       ribbon:

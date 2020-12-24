@@ -1,4 +1,4 @@
-package com.vv.personal.prom.eureka;
+package org.ks.trial.morp.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,10 +13,10 @@ import springfox.documentation.spring.web.plugins.Docket;
 @SpringBootApplication
 @EnableEurekaServer
 @EnableFeignClients
-public class PromEurekaServer {
+public class MorpEurekaServer {
 
     public static void main(String[] args) {
-        SpringApplication.run(PromEurekaServer.class, args);
+        SpringApplication.run(MorpEurekaServer.class, args);
     }
 
     @Bean
@@ -28,7 +28,7 @@ public class PromEurekaServer {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.vv.personal.prom.eureka"))
+                .apis(RequestHandlerSelectors.basePackage("org.ks.trial.morp"))
                 .build();
     }
 }

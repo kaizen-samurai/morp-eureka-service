@@ -1,4 +1,4 @@
-package com.vv.personal.prom.eureka.feign;
+package org.ks.trial.morp.eureka.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 
