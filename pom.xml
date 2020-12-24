@@ -9,12 +9,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.vv.personal</groupId>
-    <artifactId>prom-eureka-service</artifactId>
+    <groupId>org.ks.trial</groupId>
+    <artifactId>morp-eureka-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>prom-eureka</name>
+    <name>morp-eureka</name>
     <packaging>jar</packaging>
-    <description>Eureka service for prom office</description>
 
     <properties>
         <java.version>11</java.version>
