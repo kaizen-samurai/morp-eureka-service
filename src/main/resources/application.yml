@@ -16,7 +16,9 @@ eureka:
     server:
       waitTimeInMsWhenSyncEmpty: 0
     service-url:
-      defaultZone: http://localhost:${PORT:2011}/eureka
+      defaultZone: https://morp-eureka-service.herokuapp.com:${server.port}/eureka
+      non-secure-port: ${PORT:2011}
+      secure-port: 443
 
 feign:
   client:
