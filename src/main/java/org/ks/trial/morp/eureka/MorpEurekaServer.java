@@ -1,6 +1,5 @@
 package org.ks.trial.morp.eureka;
 
-import org.ks.trial.morp.eureka.constants.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +19,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import static org.ks.trial.morp.eureka.constants.Constants.HEROKU_SWAGGER_UI_URL;
-import static org.ks.trial.morp.eureka.constants.Constants.SWAGGER_UI_URL;
+import static org.ks.trial.morp.eureka.constants.Constants.*;
 
 @SpringBootApplication
 @EnableEurekaServer
@@ -51,16 +49,19 @@ public class MorpEurekaServer {
 
     @EventListener(ApplicationReadyEvent.class)
     public void firedUpAllCylinders() {
-        String host = Constants.LOCALHOST;
+        String host = LOCALHOST;
         try {
             host = InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException e) {
             LOGGER.error("Failed to obtain ip address. ", e);
         }
-        String port = environment.getProperty(Constants.LOCAL_SPRING_PORT);
-        String herokuHost = environment.getProperty("spring.application.heroku");
+        String port = environment.getProperty(LOCAL_SPRING_PORT);
+        String herokuHost = environment.getProperty(SPRING_APPLICATION_HEROKU);
         LOGGER.info("Eureka service is up now! Expected Heroku Swagger running on: {}, exact url: {}",
-                String.format(HEROKU_SWAGGER_UI_URL, herokuHost, port),
+                String.format(HEROKU_SWAGGER_UI_URL, herokuHost),
                 String.format(SWAGGER_UI_URL, host, port));
+        LOGGER.info("Expected Heroku eureka page running on: {}, exact url: {}",
+                String.format(HEROKU_HOST_URL, herokuHost),
+                String.format(HOST_URL, host, port));
     }
 }
